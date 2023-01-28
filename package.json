@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "BUILD_PATH='./docs' react-scripts build"
   },
   "dependencies": {
     "@fireworks-js/react": "^2.10.1",
