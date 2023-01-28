@@ -1,0 +1,48 @@
+.results-button {
+    position: absolute;
+    top: 1.2vmax;
+    right: 10vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6vmax;
+    height: 6vmax;
+    font-size: 4vmax;
+    cursor: pointer;
+}
+
+.results-button:active {
+    font-size: 3.5vmax;
+}
+
+.results-list-empty {
+    margin: 0;
+    text-align: center;
+}
+
+.results-list-item {
+    display: grid;
+    grid-template-columns: 6vmax 6vmax 6vmax auto;
+    font-size: 3vmax;
+}
+
+.results-list-star-container {
+    display: flex;
+    justify-content: space-between;
+    justify-self: stretch;
+}
+
+.results-list-star {
+    margin-left: 1.5vmax;
+    color: gold;
+}
+
+.results-list-restart-button {
+    margin-top: 2vmax;
+    padding: 0.3vmax 1vmax;
+    border: none;
+    border-radius: 1vmax;
+    color: #FFF;
+    font-size: 3vmax;
+    cursor: pointer;
+}

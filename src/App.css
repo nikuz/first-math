@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+.app {
+    height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mode-switch-container {
+    position: absolute;
+    top: 3vmax;
+    left: 3vmax;
+    font-size: 1.3vmax;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.mode-switch {
+    margin: 0 1vmax;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.refresh-button {
+    position: absolute;
+    top: 1vmax;
+    right: 3vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6vmax;
+    height: 6vmax;
+    font-size: 4vmax;
+    cursor: pointer;
+    user-select: none;
 }
 
-.App-link {
-  color: #61dafb;
+.refresh-button:active {
+    font-size: 3.5vmax;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.refresh-button span {
+    display: inline-block;
+    rotate: -90deg;
+}
+
+.equation-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15vmax;
+    transition: opacity 5s;
+}
+
+.equation-container.hidden {
+    visibility: hidden;
+}
+
+.equation-container.fade {
+    opacity: 0;
+}
+
+.result {
+    width: 20vmax;
+    text-align: center;
+    outline: none;
+}
+
+.result.error {
+    color: red;
+}
+
+.fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
 }
