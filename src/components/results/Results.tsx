@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Modal } from '../modal';
 import { Equation } from '../../types';
 import './Results.css';
@@ -7,6 +7,8 @@ interface Props {
     shown: boolean,
     list: Equation[],
     color?: string,
+    clock?: number,
+    finished: boolean,
     onReset?: () => void,
 }
 
@@ -15,9 +17,32 @@ export default function Results(props: Props) {
         shown,
         list,
         color,
+        clock,
+        finished,
         onReset,
     } = props;
     const [resultsShown, setResultsShown] = useState(shown);
+
+    const time = useMemo(() => {
+        if (!clock) {
+            return '';
+        }
+
+        const minutesFull = clock / 60;
+        const minutes = Math.trunc(minutesFull);
+        const seconds = Math.floor((minutesFull - minutes) * 60);
+
+        let secondsStr = seconds.toString();
+        let minutesStr = minutes.toString();
+        if (seconds < 10) {
+            secondsStr = `0${secondsStr}`;
+        }
+        if (minutes < 10) {
+            minutesStr = `0${minutesStr}`;
+        }
+
+        return `${minutesStr}:${secondsStr}`;
+    }, [clock]);
 
     const openHandler = useCallback(() => {
         setResultsShown(true);
@@ -25,7 +50,10 @@ export default function Results(props: Props) {
 
     const closeHandler = useCallback(() => {
         setResultsShown(false);
-    }, []);
+        if (finished && onReset) {
+            onReset();
+        }
+    }, [finished, onReset]);
 
     useEffect(() => {
         setResultsShown(shown)
@@ -34,9 +62,10 @@ export default function Results(props: Props) {
     return (
         <>
             <div className="results-button" onClick={openHandler}>
-                <span>⏱</span>
+                <img src={`${process.env.PUBLIC_URL}/stopwatch.png`} alt="" />
             </div>
             <Modal open={resultsShown} onClose={closeHandler}>
+                <div className="results-clock">{time}</div>
                 {list.length === 0 && (
                     <p className="results-list-empty">No equations solved yet</p>
                 )}
@@ -51,17 +80,12 @@ export default function Results(props: Props) {
                         </div>
                     </div>
                 ))}
-                {list.length !== 0 && (
+                {finished && (
                     <center>
                         <button
                             className="results-list-restart-button"
                             style={{ background: color }}
-                            onClick={() => {
-                                if (onReset) {
-                                    onReset();
-                                }
-                                setResultsShown(false);
-                            }}
+                            onClick={closeHandler}
                         >
                             Start over
                         </button>

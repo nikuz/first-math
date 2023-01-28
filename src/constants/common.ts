@@ -1,5 +1,5 @@
 export const maxDigit = 20;
-export const maxEquationsInRow = 10;
+export const maxEquationsInRow = 1;
 export const colors = [
     '#8A8AE2',
     '#533A71',
@@ -10,3 +10,4 @@ export const colors = [
     '#FFA09E',
     '#205D76',
 ];
+export const fireworksTime = 5000;

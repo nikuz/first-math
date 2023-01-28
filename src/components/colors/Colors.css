@@ -1,18 +1,23 @@
 .colors-button {
     position: absolute;
-    top: 1vmax;
+    top: 1.2vmax;
     left: 18vmax;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 6vmax;
     height: 6vmax;
-    font-size: 4vmax;
     cursor: pointer;
 }
 
-.colors-button:active {
-    font-size: 3.5vmax;
+.colors-button img {
+    width: 4vmax;
+    height: 4vmax;
+}
+
+.colors-button:active img {
+    width: 3.5vmax;
+    height: 3.5vmax;
 }
 
 .colors-container {

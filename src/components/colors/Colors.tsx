@@ -26,7 +26,7 @@ export default function Colors(props: Props) {
     return (
         <>
             <div className="colors-button" onClick={openHandler}>
-                <span>✿</span>
+                <img src={`${process.env.PUBLIC_URL}/flower.png`} alt="" />
             </div>
             <Modal open={resultsShown} onClose={closeHandler}>
                 <div className="colors-container">
