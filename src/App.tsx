@@ -98,6 +98,7 @@ function App() {
     const resetHandler = useCallback(() => {
         setEquations([]);
         setFinished(false);
+        setClock(0);
         refreshHandler();
         setTimeout(() => {
             resultElement.current?.focus();
