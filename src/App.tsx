@@ -1,23 +1,22 @@
 import React, { useState, useRef, useCallback, useEffect, useLayoutEffect } from 'react';
 import cl from 'classnames';
 import { Fireworks, FireworksHandlers } from '@fireworks-js/react'
-import { Switch, Results, Colors } from './components';
+import { Results, Colors } from './components';
 import {
     generateEquation,
     getRandomListItem,
 } from './tools';
 import './App.css';
 import { maxEquationsInRow, colors, fireworksTime } from './constants';
-import { Equation, Mode } from './types';
+import { Equation } from './types';
 
 function App() {
-    const [mode, setMode] = useState<Mode>(Mode.hard);
     const [result, setResult] = useState<number>();
     const [equations, setEquations] = useState<Equation[]>([]);
     const [color, setColor] = useState(getRandomListItem(colors));
     const [error, setError] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [equation, setEquation] = useState<Equation>(generateEquation(mode, equations));
+    const [equation, setEquation] = useState<Equation>(generateEquation(equations));
     const [finished, setFinished] = useState(false);
     const [clock, setClock] = useState<number>(0);
     const fireworks = useRef<FireworksHandlers>(null);
@@ -29,20 +28,14 @@ function App() {
         setClock((clock) => clock + 1);
     }, []);
 
-    const refreshHandler = useCallback((newMode?: Mode) => {
-        setEquation(generateEquation(newMode ?? mode, equations));
+    const refreshHandler = useCallback(() => {
+        setEquation(generateEquation(equations));
         clearInterval(timer.current);
         timer.current = setInterval(clockHandler, 1000);
         if (resultElement.current) {
             resultElement.current.innerText = '';
         }
-    }, [mode, equations, clockHandler]);
-
-    const modeChangeHandler = useCallback((value: boolean) => {
-        const newMode = value ? Mode.hard : Mode.easy;
-        setMode(newMode);
-        refreshHandler(newMode);
-    }, [refreshHandler]);
+    }, [equations, clockHandler]);
 
     const resultEditHandler = useCallback((event: React.ChangeEvent<HTMLDivElement>) => {
         let value = event.currentTarget.textContent ?? '';
@@ -181,21 +174,6 @@ function App() {
                     }
                 }}
             />
-            {/*<div className="mode-switch-container">*/}
-            {/*    <span>Easy</span>*/}
-            {/*    <Switch*/}
-            {/*        className="mode-switch"*/}
-            {/*        on={mode === Mode.hard}*/}
-            {/*        color={color}*/}
-            {/*        onChange={modeChangeHandler}*/}
-            {/*    />*/}
-            {/*    <span>Hard</span>*/}
-            {/*</div>*/}
-            {/*<div*/}
-            {/*    className="refresh-button"*/}
-            {/*    onClick={() => refreshHandler()}>*/}
-            {/*    <span>↺</span>*/}
-            {/*</div>*/}
             <Colors
                 color={color}
                 onChoose={(color: string) => setColor(color)}

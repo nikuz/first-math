@@ -1,10 +1,10 @@
 import { getRandomArbitrary, getRandomListItem } from './rand';
 import { maxDigit } from '../constants';
-import { Equation, Mode, Operator } from '../types';
+import { Equation, Operator } from '../types';
 
-export function generateEquation(mode: Mode, equations: Equation[]): Equation {
-    const firstPartMin = mode === Mode.hard ? 10 : 1;
-    const firstPartMax = mode === Mode.hard ? 20 : 10;
+export function generateEquation(equations: Equation[]): Equation {
+    const firstPartMin = 1;
+    const firstPartMax = 20;
 
     let operator = getRandomListItem(Object.values(Operator)) as Operator;
     let secondPart = getRandomArbitrary(1, 10);
@@ -28,7 +28,7 @@ export function generateEquation(mode: Mode, equations: Equation[]): Equation {
             && equation.operator === newEquation.operator
             && equation.secondPart === newEquation.secondPart
         ) {
-            return generateEquation(mode, equations);
+            return generateEquation(equations);
         }
     }
 

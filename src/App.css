@@ -2,40 +2,6 @@
     height: 100%;
 }
 
-.mode-switch-container {
-    position: absolute;
-    top: 3vmax;
-    left: 3vmax;
-    font-size: 1.3vmax;
-}
-
-.mode-switch {
-    margin: 0 1vmax;
-}
-
-.refresh-button {
-    position: absolute;
-    top: 1vmax;
-    right: 3vmax;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 6vmax;
-    height: 6vmax;
-    font-size: 4vmax;
-    cursor: pointer;
-    user-select: none;
-}
-
-.refresh-button:active {
-    font-size: 3.5vmax;
-}
-
-.refresh-button span {
-    display: inline-block;
-    rotate: -90deg;
-}
-
 .equation-container {
     height: 100%;
     display: flex;

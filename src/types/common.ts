@@ -14,11 +14,6 @@ export class Equation {
     };
 }
 
-export enum Mode {
-    easy = 'easy',
-    hard = 'hard',
-}
-
 export enum Operator {
     plus = '+',
     minus = '-',
