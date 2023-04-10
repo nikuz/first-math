@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/first-math/static/css/main.9f133167.css",
-    "main.js": "/first-math/static/js/main.2492079d.js",
+    "main.css": "/first-math/static/css/main.10c2cc79.css",
+    "main.js": "/first-math/static/js/main.759ae66f.js",
     "static/js/787.4c9acd41.chunk.js": "/first-math/static/js/787.4c9acd41.chunk.js",
     "index.html": "/first-math/index.html",
-    "main.9f133167.css.map": "/first-math/static/css/main.9f133167.css.map",
-    "main.2492079d.js.map": "/first-math/static/js/main.2492079d.js.map",
+    "main.10c2cc79.css.map": "/first-math/static/css/main.10c2cc79.css.map",
+    "main.759ae66f.js.map": "/first-math/static/js/main.759ae66f.js.map",
     "787.4c9acd41.chunk.js.map": "/first-math/static/js/787.4c9acd41.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9f133167.css",
-    "static/js/main.2492079d.js"
+    "static/css/main.10c2cc79.css",
+    "static/js/main.759ae66f.js"
   ]
 }
