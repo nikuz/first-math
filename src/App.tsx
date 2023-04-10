@@ -181,21 +181,21 @@ function App() {
                     }
                 }}
             />
-            <div className="mode-switch-container">
-                <span>Easy</span>
-                <Switch
-                    className="mode-switch"
-                    on={mode === Mode.hard}
-                    color={color}
-                    onChange={modeChangeHandler}
-                />
-                <span>Hard</span>
-            </div>
-            <div
-                className="refresh-button"
-                onClick={() => refreshHandler()}>
-                <span>↺</span>
-            </div>
+            {/*<div className="mode-switch-container">*/}
+            {/*    <span>Easy</span>*/}
+            {/*    <Switch*/}
+            {/*        className="mode-switch"*/}
+            {/*        on={mode === Mode.hard}*/}
+            {/*        color={color}*/}
+            {/*        onChange={modeChangeHandler}*/}
+            {/*    />*/}
+            {/*    <span>Hard</span>*/}
+            {/*</div>*/}
+            {/*<div*/}
+            {/*    className="refresh-button"*/}
+            {/*    onClick={() => refreshHandler()}>*/}
+            {/*    <span>↺</span>*/}
+            {/*</div>*/}
             <Colors
                 color={color}
                 onChoose={(color: string) => setColor(color)}
